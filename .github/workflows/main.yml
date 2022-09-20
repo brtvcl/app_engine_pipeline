@@ -21,6 +21,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          ENV_SECRET: ${{ secrets.MY_SECRET }}
+
     - name: Deploy to App Engine
       id: deploy
       uses: google-github-actions/deploy-appengine@v0.2.0
