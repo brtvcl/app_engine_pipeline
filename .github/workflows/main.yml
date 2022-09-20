@@ -23,8 +23,8 @@ jobs:
 
     - name: Create .env file
       uses: ozaytsev86/create-env-file@v1
-        with:
-          ENV_SECRET: ${{ secrets.MY_SECRET }}
+      with:
+        ENV_SECRET: ${{ secrets.MY_SECRET }}
 
     - name: Deploy to App Engine
       id: deploy
