@@ -26,6 +26,12 @@ jobs:
       with:
         ENV_SECRET: ${{ secrets.MY_SECRET }}
 
+
+    - uses: "finnp/create-file-action@master"
+      env:
+        FILE_NAME: "secret_file.json"
+        FILE_DATA: ${{ secrets.MY_SECRET }}
+
     - name: Deploy to App Engine
       id: deploy
       uses: google-github-actions/deploy-appengine@v0.2.0

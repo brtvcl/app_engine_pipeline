@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import fs from "fs/promises";
 
 
 //Initialize dotenv
@@ -12,8 +13,15 @@ const SECRET = process.env.SECRET;
 
 
 
-app.get('/', (req, res) => {
-  res.send(`Hello from ${NODE_ENV}, 🔒:${SECRET}`);
+app.get('/', async (req, res) => {
+
+    let content = await fs.readFile("./secret_file.json");
+    let string = content.toString();
+
+    res.send(`Hello from ${NODE_ENV}, 
+    <br/>🔒:${SECRET}
+    <br/>📄:${string}
+    `);
 })
 
 app.listen(PORT, () => {
