@@ -22,7 +22,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Create .env file
-        uses: ozaytsev86/create-env-file@v1
+      uses: ozaytsev86/create-env-file@v1
         with:
           ENV_SECRET: ${{ secrets.MY_SECRET }}
 
